@@ -1,0 +1,49 @@
+{
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "jest.autoRun": {
+    "watch": false,
+    "onSave": "test-file"
+  },
+  "search.exclude": {
+    "package-lock.json": true
+  },
+  "editor.defaultFormatter": "dbaeumer.vscode-eslint",
+  "editor.formatOnSave": false,
+  "editor.codeActionsOnSave": [
+    "source.addMissingImports",
+    "source.fixAll.eslint"
+  ],
+  // Overriding multiple language files isn't available on VScode yet
+  "[json]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[jsonc]": {
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#d8b28c",
+    "activityBar.activeBorder": "#308f60",
+    "activityBar.background": "#d8b28c",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#308f60",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "editorGroup.border": "#d8b28c",
+    "panel.border": "#d8b28c",
+    "sash.hoverBorder": "#d8b28c",
+    "sideBar.border": "#d8b28c",
+    "statusBar.background": "#cb9866",
+    "statusBar.foreground": "#15202b",
+    "statusBarItem.hoverBackground": "#be7e40",
+    "statusBarItem.remoteBackground": "#cb9866",
+    "statusBarItem.remoteForeground": "#15202b",
+    "titleBar.activeBackground": "#cb9866",
+    "titleBar.activeForeground": "#15202b",
+    "titleBar.inactiveBackground": "#cb986699",
+    "titleBar.inactiveForeground": "#15202b99"
+  },
+  "peacock.color": "#cb9866"
+}
