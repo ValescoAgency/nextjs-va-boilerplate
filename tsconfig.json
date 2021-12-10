@@ -1,16 +1,20 @@
 {
   "compilerOptions": {
+    "baseUrl": ".",
     "paths": {
       "@": ["/*"],
-      "@components/*": ["components/*"],
-      "@layouts/*": ["layouts/*"],
-      "@lib/*": ["lib/*"],
+      "@common/components/*": ["common/components/*"],
+      "@common/hooks/*": ["common/hooks/*"],
+      "@modules/*": ["modules/*"],
       "@pages/*": ["pages/*"],
       "@styles/*": ["styles/*"],
-      "@utils/*": ["utils/*"]
+      "@common/utils/*": ["common/utils/*"],
+      "@common/types/*": ["common/types/*"]
     },
     "lib": ["dom", "dom.iterable", "esnext"],
     "module": "esnext",
+    "target": "esnext",
+    "jsx": "preserve",
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "removeComments": true,
@@ -19,7 +23,6 @@
     "alwaysStrict": true,
     "strictNullChecks": true,
     "noUncheckedIndexedAccess": true,
-
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
@@ -27,23 +30,17 @@
     "noUnusedParameters": true,
     "allowUnreachableCode": false,
     "noFallthroughCasesInSwitch": true,
-
-    "target": "es5",
-    "baseUrl": ".",
-    "outDir": "out",
     "declaration": true,
     "sourceMap": true,
-
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
-    "allowJs": false,
+    "allowJs": true,
     "skipLibCheck": true,
     "forceConsistentCasingInFileNames": true,
-
-    "jsx": "preserve",
     "noEmit": true,
-    "isolatedModules": true
+    "isolatedModules": true,
+    "incremental": true
   },
-  "exclude": ["./out/**/*", "./node_modules/**/*"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+  "exclude": ["./node_modules/**/*"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.js", "**/*.jsx"]
 }

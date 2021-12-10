@@ -2,46 +2,46 @@ const {
   colors,
   fontFamily,
   screens,
-  spacing,
+  spacing
 } = require('tailwindcss/defaultTheme');
 
 module.exports = {
   mode: 'jit',
   purge: [
     './pages/**/*.{js,ts,jsx,tsx}',
-    './components/**/*.{js,ts,jsx,tsx}',
-    './layouts/**/*.{js,ts,jsx,tsx}',
+    './common/components/**/*.{js,ts,jsx,tsx}',
+    './modules/**/*.{js,ts,jsx,tsx}'
   ],
   darkMode: 'class',
   theme: {
     screens: {
-      'xs': '480px',
+      xs: '480px',
       '3xl': '1920px',
-      ...screens,
+      ...screens
     },
     extend: {
       animation: {
-        wiggle: 'wiggle 0.5s ease-in-out infinite',
+        wiggle: 'wiggle 0.5s ease-in-out infinite'
       },
       colors: {
         brand: {
           DEFAULT: '#cb9866',
           dark: '#be7e40',
           light: '#d8b28c',
-          comp: '#6699cb',
+          comp: '#6699cb'
         },
-secondary: {
+        secondary: {
           DEFAULT: '#1F243F',
-          '50': '#828CC1',
-          '100': '#717CB9',
-          '200': '#515FA6',
-          '300': '#414B83',
-          '400': '#303861',
-          '500': '#1F243F',
-          '600': '#0E101D',
-          '700': '#000000',
-          '800': '#000000',
-          '900': '#000000',
+          50: '#828CC1',
+          100: '#717CB9',
+          200: '#515FA6',
+          300: '#414B83',
+          400: '#303861',
+          500: '#1F243F',
+          600: '#0E101D',
+          700: '#000000',
+          800: '#000000',
+          900: '#000000'
         },
         surface: {
           dark: '#0f151d',
@@ -55,22 +55,21 @@ secondary: {
           dl7: '#31363d',
           dl8: '#33383f',
           dl9: '#353a41',
-          light: 'colors.gray.600',
+          light: 'colors.gray.600'
         },
         va: {
-          DEFAULT: '#cb9866',
+          DEFAULT: '#cb9866'
         },
-        gray: colors.coolGray,
+        gray: colors.coolGray
       },
       fontFamily: {
-        sans: ['Nunito', ...fontFamily.sans],
-        headings: ['Montserrat', ...fontFamily.sans],
+        sans: ['IBM Plex Sans', ...fontFamily.sans]
       },
       boxShadow: {
         'lg-invert':
           '0 10px 15px -3px rgba(255, 255, 255, 0.1), 0 4px 6px -2px rgba(255, 255, 255, 0.05)',
         magical:
-          'rgba(0, 0, 0, 0.02) 0px 30px 30px, rgba(0, 0, 0, 0.03) 0px 0px 8px, rgba(0, 0, 0, 0.05) 0px 1px 0px',
+          'rgba(0, 0, 0, 0.02) 0px 30px 30px, rgba(0, 0, 0, 0.03) 0px 0px 8px, rgba(0, 0, 0, 0.05) 0px 1px 0px'
       },
       typography: (theme) => ({
         DEFAULT: {
@@ -133,22 +132,22 @@ secondary: {
         }
       }),
       zIndex: {
-        '-10': '-10',
+        '-10': '-10'
       },
       keyframes: {
         wiggle: {
           '0%, 100%': { transform: 'rotate(-4deg)' },
-          '50%': { transform: 'rotate(4deg)' },
-        },
-      },
-    },
+          '50%': { transform: 'rotate(4deg)' }
+        }
+      }
+    }
   },
   variants: {
-    typography: ['dark'],
+    typography: ['dark']
   },
   plugins: [
     require('@tailwindcss/typography'),
     require('@tailwindcss/aspect-ratio'),
-    require('@tailwindcss/forms'),
-  ],
+    require('@tailwindcss/forms')
+  ]
 };

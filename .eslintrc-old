@@ -1,0 +1,80 @@
+{
+  "extends": [
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "next",
+    "airbnb",
+    "plugin:prettier/recommended",
+    "prettier"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "prettier", "unused-imports"],
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "alias": {
+        "map": [
+          ["@components", "./components/"],
+          ["@utils", "./utils/"],
+          ["@layouts", "./layouts/"],
+          ["@lib", "./lib/"],
+          ["@pages", "./pages/"]
+        ],
+        "extensions": [".js", ".jsx", ".mjs", ".ts", ".tsx"]
+      }
+    }
+  },
+  "rules": {
+    "jsx-a11y/anchor-is-valid": [
+      "off",
+      {
+        "components": ["Link"]
+      }
+    ],
+    "jsx-a11y/anchor-has-content": [
+      "error",
+      {
+        "components": ["Link"]
+      }
+    ],
+    "react/react-in-jsx-scope": "off",
+    "react/button-has-type": [
+      "error",
+      {
+        "button": true,
+        "submit": true,
+        "reset": true
+      }
+    ],
+    "react/display-name": 0,
+    "react/prop-types": 0,
+    "react/jsx-props-no-spreading": 0,
+    "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+    "react-hooks/exhaustive-deps": "warn", // Checks effect dependencies
+    "indent": ["error", 2],
+    "no-debugger": "off",
+    "no-console": [
+      2,
+      {
+        "allow": ["warn", "error"]
+      }
+    ],
+    "no-var": "error",
+    "no-unused-vars": "off",
+    "one-var": 0,
+    "semi": "error",
+    "no-multi-spaces": "error",
+    "space-in-parens": "error",
+    "no-multiple-empty-lines": "error",
+    "prefer-const": "error",
+    "no-use-before-define": "error",
+    "no-nested-ternary": "off",
+    "capitalized-comments": "off",
+    "no-ternary": "off",
+    "sort-imports": "off",
+    "sort-keys": "off",
+    "func-style": ["error", "declaration", { "allowArrowFunctions": true }]
+  }
+}

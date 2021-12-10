@@ -1,53 +1,4 @@
 /* eslint-disable import/no-extraneous-dependencies */
-/**
- * @type {import('next').NextConfig}
- */
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-});
-
-module.exports = withBundleAnalyzer({
-  experimental: {
-    esmExternals: true,
-    swcLoader: true,
-    swcMinify: false
-  },
-  poweredByHeader: false,
-  trailingSlash: true,
-  basePath: '',
-  // The starter code load resources from `public` folder with `router.basePath` in React components.
-  // So, the source code is "basePath-ready".
-  // You can remove `basePath` if you don't need it.
-  reactStrictMode: true,
-  images: {
-    domains: [
-      'localhost', // Local Backend Server
-      'lh5.googleusercontent.com', // Google Content for profile pics
-      'pbs.twimg.com' // Twitter Profile Picture
-    ]
-  },
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: securityHeaders
-      }
-    ];
-  },
-  webpack: (config, { dev, isServer }) => {
-    // Replace React with Preact only in client production build
-    if (!dev && !isServer) {
-      Object.assign(config.resolve.alias, {
-        react: 'preact/compat',
-        'react-dom/test-utils': 'preact/test-utils',
-        'react-dom': 'preact/compat'
-      });
-    }
-
-    return config;
-  }
-});
-
 // https://securityheaders.com
 const ContentSecurityPolicy = `
   default-src 'self';
@@ -98,3 +49,58 @@ const securityHeaders = [
     value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()'
   }
 ];
+
+/**
+ * @type {import('next').NextConfig}
+ */
+
+module.exports = {
+  experimental: {
+    esmExternals: true,
+    concurrentFeatures: true
+  },
+  swcMinify: true,
+  eslint: {
+    dirs: [
+      'pages',
+      'common/components',
+      'common/hooks',
+      'modules',
+      'common/utils'
+    ]
+  },
+  poweredByHeader: false,
+  trailingSlash: true,
+  basePath: '',
+  // The starter code load resources from `public` folder with `router.basePath` in React components.
+  // So, the source code is "basePath-ready".
+  // You can remove `basePath` if you don't need it.
+  reactStrictMode: true,
+  images: {
+    domains: [
+      'localhost', // Local Backend Server
+      'assets.vercel.com' // Vercel Content
+    ],
+    formats: ['image/avif', 'image/webp']
+  },
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: securityHeaders
+      }
+    ];
+  },
+  webpack: (config, { dev, isServer }) => {
+    // Replace React with Preact only in client production build
+    if (!dev && !isServer) {
+      Object.assign(config.resolve.alias, {
+        react: 'preact/compat',
+        'react-dom/test-utils': 'preact/test-utils',
+        'react-dom': 'preact/compat'
+      });
+    }
+
+    return config;
+  }
+};

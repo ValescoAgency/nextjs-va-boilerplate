@@ -1,28 +1,28 @@
+import { ReactElement, ReactNode } from 'react';
 import { useRouter } from 'next/router';
+import { NextSeo } from 'next-seo';
+import Layout from '@common/components/Layout';
+import Image from 'next/image';
 
-import { Meta } from '../layout/Meta';
-import { Main } from '../templates/Main';
-
-const Index = () => {
+export default function Index() {
   const router = useRouter();
 
   return (
-    <Main
-      meta={
-        <Meta
-          title="Next.js Boilerplate Presentation"
-          description="Next js Boilerplate is the perfect starter code for your project. Build your React application with the Next.js framework."
-        />
-      }
-    >
-      <a href="https://github.com/ixartz/Next-js-Boilerplate">
-        <img
-          src={`${router.basePath}/assets/images/nextjs-starter-banner.png`}
+    <>
+      <NextSeo
+        title="Next.js Boilerplate Presentation"
+        description="Next.js Boilerplate is the perfect starter code for your project. Build your React application with the Next.js framework."
+      />
+      <a href="https://github.com/ValescoAgency/nextjs-va-boilerplate">
+        <Image
+          src={`/images/nextjs-starter-banner.png`}
           alt="Nextjs starter banner"
+          width={600}
+          height={300}
         />
       </a>
       <h1 className="font-bold text-2xl">
-        Boilerplate code for your Nextjs project with Tailwind CSS
+        Boilerplate code for your Next.js project with Tailwind CSS
       </h1>
       <p>
         <span role="img" aria-label="rocket">
@@ -34,9 +34,9 @@ const Index = () => {
           ⚡️
         </span>{' '}
         Made with Next.js, TypeScript, ESLint, Prettier, Husky, Lint-Staged,
-        VSCode, Netlify, PostCSS, Tailwind CSS.
+        VSCode, Vercel, PostCSS, Tailwind CSS.
       </p>
-      <h2 className="font-semibold text-lg">Next js Boilerplate Features</h2>
+      <h2 className="font-semibold text-lg">Next.js Boilerplate Features</h2>
       <p>Developer experience first:</p>
       <ul>
         <li>
@@ -170,17 +170,15 @@ const Index = () => {
       </ul>
       <p>
         Check our GitHub project for more information about{' '}
-        <a href="https://github.com/ixartz/Next-js-Boilerplate">
-          Nextjs Boilerplate
+        <a href="https://github.com/ValescoAgency/nextjs-va-boilerplate">
+          Next.js Boilerplate
         </a>
-        . You can also browse our{' '}
-        <a href="https://creativedesignsguru.com/category/nextjs/">
-          Premium NextJS Templates
-        </a>{' '}
-        on our website to support this project.
+        .
       </p>
-    </Main>
+    </>
   );
-};
+}
 
-export default Index;
+Index.getLayout = function getLayout(page: ReactNode) {
+  return <Layout>{page}</Layout>;
+};
