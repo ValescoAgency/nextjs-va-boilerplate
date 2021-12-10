@@ -18,7 +18,7 @@
     "build-stats": "cross-env ANALYZE=true yarn run build",
     "export": "next export",
     "build-prod": "run-s clean build export",
-    "clean": "rimraf .next out",
+    "clean": "rimraf .next node_modules",
     "lint": "next lint",
     "find:unused": "next-unused",
     "build-types": "tsc --noEmit --pretty",
